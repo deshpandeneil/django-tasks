@@ -18,10 +18,13 @@ def index(request):
         if len(users) != 0:
             messages.error(request, 'This username already exists. Try another username.')
             return render(request, 'task_2/signUp.html')
+        phone = str(request.POST.get('phone'))
+        if len(phone) != 10:
+            messages.error(request, 'Please enter valid phone number.')
+            return render(request, 'task_2/signUp.html')
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
         email = request.POST.get('email')
-        phone = request.POST.get('phone')
         gender = request.POST.get('gender')
         newUser = User.objects.create_user(username=username, email=email, first_name=fname, last_name=lname,
                                            password=password1)

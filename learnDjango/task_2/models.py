@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.IntegerField(max_length=10)
+    phone = models.IntegerField()
     gender = models.CharField(max_length=1, choices=(('m', 'Male'), ('f', 'Female'), ('o', 'Other')), blank=True,
                               null=True)
 
