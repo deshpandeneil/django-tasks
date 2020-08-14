@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+</head>
+<body>
+
+<h1>Display all numbers in a range.</h1>
+<h3>(Range to be taken from user.)</h3>
+
+<h4>List of first 20 numbers:</h4>
+
+<ul>
+
+    {% for number in numbers %}
+        <li>{{ number }}</li>
+    {% endfor %}
+
+</ul>
+
+<h4>Enter custom range:</h4>
+
+<form method="post" action="result">
+
+    {% csrf_token %}
+
+    <div>
+        <label for="start">Enter Starting Value: </label>
+        <input type="number" id="start" name="start"/>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="end">Enter Ending Value: </label>
+        <input type="number" id="end" name="end"/>
+    </div>
+
+    <br>
+
+    <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+</form>
+
+</body>
+</html>

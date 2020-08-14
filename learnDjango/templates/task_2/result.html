@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+{% if user %}
+    <h2>A user has been found.</h2>
+    <h3>Details:</h3>
+    {% for u in user %}
+        <p><b>Userame:</b> {{u.username}}</p>
+        <p><b>Name:</b> {{u.first_name}} {{u.last_name}}</p>
+        <p><b>Email:</b> {{u.email}}</p>
+        <p><b>Phone Number:</b> {{u.profile.phone}}</p>
+        <p><b>Gender:</b> {{u.profile.gender}}</p>
+    {% endfor %}
+{% else %}
+    <h2>Search for a user with an email to see the results.</h2>
+    <br>
+    <a href="{% url 'search' %}">Go to search page.</a>
+{% endif %}
+<a href="{% url 'search' %}">Search for another user.</a>
+</body>
+</html>

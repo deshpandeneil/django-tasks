@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home</title>
+</head>
+<body>
+<div>
+    <p>
+    <h1>Hello Ji!</h1>
+    {% if user.is_authenticated %}
+        <h4>You have been logged in as {{ user.username }}</h4>
+        {% if user.profile.gender %}
+            <h5>Your gender is {{ user.profile.gender }}</h5>
+        {% endif %}
+        <a href="{% url 'logout' %}">
+            <button type="submit">Logout</button>
+        </a>
+    {% else %}
+        <p>You have not logged in. Please login to view this page.</p>
+        <a href="{% url 'login' %}">
+            <button type="submit">Login</button>
+        </a>
+    {% endif %}
+    </p>
+
+</div>
+</body>
+</html>
